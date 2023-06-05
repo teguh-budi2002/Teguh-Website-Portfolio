@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-primary-dark {
+    background-color: #232b2b;
+  }
+  .bg-primary-blue {
+    background-color: #30a2ff;
+  }
+  .text-primary {
+    color: #79dae8;
+  }
+}
