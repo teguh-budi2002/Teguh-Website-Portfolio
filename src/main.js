@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+import "./assets/tailwind/tailwind.css";
 import PrimeVue from "primevue/config";
 import "./assets/tailwind/tailwind.css";
 import "primevue/resources/themes/md-light-indigo/theme.css";
