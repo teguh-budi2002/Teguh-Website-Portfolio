@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite && npx tailwindcss -i ./src/assets/tailwind/tailwind.css -o ./dist/output.css --watch",
-    "build": "vite build && npx tailwindcss -i ./src/assets/tailwind/tailwind.css -o ./dist/output.css --watch",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
