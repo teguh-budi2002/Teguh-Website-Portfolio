@@ -23,10 +23,7 @@
             class="grid grid-cols-1 grid-rows-2 gap-5 border-[1px] border-slate-400 rounded-md shadow-md m-2 py-5 px-3 w-auto sm:h-[350px] h-[400px] dark:bg-primary-dark"
           >
             <div class="mb-1 flex justify-center items-center">
-              <img
-                :src="'../../../img/' + slotProps.data.imgUrl"
-                class="w-24"
-              />
+              <img :src="slotProps.data.imgUrl" class="w-24" />
             </div>
             <div>
               <div
@@ -76,7 +73,7 @@
           >
             <div class="mb-1 flex justify-center items-center">
               <img
-                :src="'../../../img/' + slotProps.data.imgUrl"
+                :src="slotProps.data.imgUrl"
                 class="w-24 aspect-square"
                 style="filter: brightness(150%)"
               />

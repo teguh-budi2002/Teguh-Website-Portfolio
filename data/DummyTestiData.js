@@ -1,51 +1,51 @@
 const testimonial = [
   {
     name: "Testi 1",
-    imgUrl: "../img/testimonial/joki.jpeg",
+    imgUrl: new URL("../img/testimonial/joki.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 2",
-    imgUrl: "../img/testimonial/joki2.jpeg",
+    imgUrl: new URL("../img/testimonial/joki2.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 3",
-    imgUrl: "../img/testimonial/joki3.jpeg",
+    imgUrl: new URL("../img/testimonial/joki3.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 4",
-    imgUrl: "../img/testimonial/joki4.jpeg",
+    imgUrl: new URL("../img/testimonial/joki4.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 5",
-    imgUrl: "../img/testimonial/joki5.jpeg",
+    imgUrl: new URL("../img/testimonial/joki5.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 6",
-    imgUrl: "../img/testimonial/joki6.jpeg",
+    imgUrl: new URL("../img/testimonial/joki6.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 7",
-    imgUrl: "../img/testimonial/joki7.jpeg",
+    imgUrl: new URL("../img/testimonial/joki7.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 8",
-    imgUrl: "../img/testimonial/joki8.jpeg",
+    imgUrl: new URL("../img/testimonial/joki8.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 9",
-    imgUrl: "../img/testimonial/joki9.jpeg",
+    imgUrl: new URL("../img/testimonial/joki9.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 10",
-    imgUrl: "../img/testimonial/joki10.jpeg",
+    imgUrl: new URL("../img/testimonial/joki0.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 11",
-    imgUrl: "../img/testimonial/joki11.jpeg",
+    imgUrl: new URL("../img/testimonial/joki11.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 12",
-    imgUrl: "../img/testimonial/joki12.jpeg",
+    imgUrl: new URL("../img/testimonial/joki12.jpeg", import.meta.url).href,
   },
 ];
 
