@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import "./assets/tailwind/tailwind.css";
 import PrimeVue from "primevue/config";
+import "./assets/tailwind/tailwind.css";
 import "primevue/resources/themes/md-light-indigo/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
