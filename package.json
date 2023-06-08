@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npx tailwindcss -i ./src/assets/tailwind/tailwind.css -o ./dist/output.css --watch",
-    "preview": "vite preview"
+    "build": "vite build",
+    "preview": "vite preview ",
+    "build:css": "npx tailwindcss -i ./src/assets/tailwind/tailwind.css -o ./tailwind/output.css --watch"
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6",
@@ -19,7 +20,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "gh-pages": "^5.0.0",
     "vite": "^4.3.5"
   }
 }
