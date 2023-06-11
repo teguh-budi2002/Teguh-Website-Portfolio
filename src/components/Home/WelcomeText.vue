@@ -11,7 +11,6 @@
       :typeSpeed="35"
       :delay="1000"
       :start="2000"
-      :caret="underscore"
     />
     <p class="text-sm text-slate-400 capitalize">
       Experience Programmer Almost 2 Years, open a freelance web app service and

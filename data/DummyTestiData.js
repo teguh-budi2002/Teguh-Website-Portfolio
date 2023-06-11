@@ -37,7 +37,7 @@ const testimonial = [
   },
   {
     name: "Testi 10",
-    imgUrl: new URL("../img/testimonial/joki0.jpeg", import.meta.url).href,
+    imgUrl: new URL("../img/testimonial/joki10.jpeg", import.meta.url).href,
   },
   {
     name: "Testi 11",

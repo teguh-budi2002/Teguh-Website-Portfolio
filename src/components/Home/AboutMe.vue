@@ -60,6 +60,13 @@
       data-aos-duration="500"
       data-aos-once="true"
     >
+      <div class="img_user mb-5">
+        <img
+          src="../../../img/my-photo-profile.jpg"
+          class="w-48 h-48 rounded-full mx-auto"
+          alt=""
+        />
+      </div>
       <p class="text-5xl text-slate-600 font-bold dark:text-white">
         My Name is Teguh Budi Laksono,
       </p>

@@ -1,7 +1,7 @@
 <template>
   <div class="sm:invisible visible flex justify-center">
     <div
-      class="fixed bottom-8 w-96 backdrop-blur-sm bg-primary-blue dark:bg-slate-800 z-50 p-3.5 rounded-full"
+      class="fixed bottom-8 w-[356px] backdrop-blur-sm bg-primary-blue dark:bg-slate-800 z-50 p-3.5 rounded-full"
     >
       <ul class="flex items-center justify-around mx-8 relative text-sky-200">
         <li>
@@ -26,7 +26,7 @@
         <li>
           <button
             :class="
-              'btn_dark_mobile absolute -top-6 right-28 shadow-md py-6 px-7 rounded-xl ' +
+              'btn_dark_mobile absolute -top-6 right-[90px] shadow-md py-6 px-7 rounded-xl ' +
               bgIconIsDark
             "
             type="button"
