@@ -57,6 +57,6 @@ export default {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  background-image: url("../../img/bg__main.webp");
+  background-image: url("../../../img/bg__main.webp");
 }
 </style>
