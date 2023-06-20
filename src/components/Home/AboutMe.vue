@@ -37,7 +37,7 @@
         <p class="font-semibold text-slate-400 text-sm">+62-8383-4819-552</p>
         <a
           class="p-2 bg-green-400 hover:bg-green-500 rounded text-white mt-3 block"
-          href="wa.me/6283834819552"
+          href="https://wa.me/6283834819552"
           >Send Message To Me</a
         >
       </div>
@@ -49,7 +49,7 @@
         <p class="font-semibold text-slate-400 text-sm">teguhbudiii</p>
         <a
           class="p-2 bg-purple-400 hover:bg-purple-500 rounded text-white mt-3 block"
-          href="instagram.com/teguhbudiii"
+          href="https://instagram.com/teguhbudiii"
           >Let's Follow Up Each Other</a
         >
       </div>
