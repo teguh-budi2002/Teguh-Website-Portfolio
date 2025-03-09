@@ -1,7 +1,7 @@
 <template>
-  <div id="skill" class="sm:mx-36 mx-3">
+  <div id="skill" ref="skill" class="sm:mx-36 mx-3">
     <p
-      class="text-center sm:text-6xl text-4xl font-semibold text-slate-500 dark:text-primary"
+      class="sub-heading-font text-center sm:text-6xl text-4xl text-slate-600 dark:text-primary"
     >
       My Experiences
     </p>

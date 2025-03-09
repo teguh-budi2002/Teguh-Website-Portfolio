@@ -47,6 +47,14 @@ const testimonial = [
     name: "Testi 12",
     imgUrl: new URL("../img/testimonial/joki12.jpeg", import.meta.url).href,
   },
+  {
+    name: "Testi 13",
+    imgUrl: new URL("../img/testimonial/joki13.jpg", import.meta.url).href,
+  },
+  {
+    name: "Testi 14",
+    imgUrl: new URL("../img/testimonial/joki14.jpg", import.meta.url).href,
+  },
 ];
 
 export default testimonial;

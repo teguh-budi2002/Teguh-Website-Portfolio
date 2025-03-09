@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="sm:block hidden fixed top-0 w-full dark:bg-primary-dark border-b-[1px] border-sky-400 py-5 px-6 shadow-md z-50 backdrop-blur-md"
+    class="sm:block hidden fixed top-0 w-full dark:bg-black border-b-[1px] border-sky-400 py-6 px-6 shadow-md z-50 backdrop-blur-md"
   >
     <div class="flex items-center justify-between">
       <div class="menu_link">
@@ -10,41 +10,41 @@
           <li>
             <router-link
               :to="{ name: 'home', hash: '#home' }"
-              :class="{ active: getCurrentHashRoute === '#home' }"
+              :class="{ active: currentRouteHash === '#home' }"
               exact-path
+              @click="handleMenuClick('home')"
             >
-              <i
-                class="pi pi-home"
-                target-hash="#home"
-                style="font-size: 1.5rem"
-              ></i>
+              <span>Home</span>
             </router-link>
           </li>
           <li>
             <router-link
               :to="{ name: 'home', hash: '#skill' }"
-              :class="{ active: getCurrentHashRoute === '#skill' }"
+              :class="{ active: currentRouteHash === '#skill' }"
               exact-path
+              @click="handleMenuClick('skill')"
             >
-              <i class="pi pi-code" style="font-size: 1.3rem"></i>
+              <span>Experience</span>
             </router-link>
           </li>
           <li>
             <router-link
               :to="{ name: 'home', hash: '#testi' }"
-              :class="{ active: getCurrentHashRoute === '#testi' }"
+              :class="{ active: currentRouteHash === '#testi' }"
               exact-path
+              @click="handleMenuClick('testi')"
             >
-              <i class="pi pi-dollar" style="font-size: 1.3rem"></i>
+              <span>Testimonial</span>
             </router-link>
           </li>
           <li>
             <router-link
               :to="{ name: 'home', hash: '#aboutme' }"
-              :class="{ active: getCurrentHashRoute === '#aboutme' }"
+              :class="{ active: currentRouteHash === '#aboutme' }"
               exact-path
+              @click="handleMenuClick('aboutme')"
             >
-              <i class="pi pi-user" style="font-size: 1.3rem"></i>
+              <span>About Me</span>
             </router-link>
           </li>
         </ul>
@@ -63,8 +63,8 @@
 <script>
 import SwitchDark from "./SwitchDark.vue";
 import MobileMenuDisplay from "./MobileMenuDisplay.vue";
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { ref, onMounted, watch, nextTick } from "vue";
+import { useRoute, useRouter } from "vue-router";
 
 export default {
   components: {
@@ -72,10 +72,101 @@ export default {
     MobileMenuDisplay,
   },
   setup() {
+    const router = useRouter();
     const route = useRoute();
-    const getCurrentHashRoute = computed(() => route.hash);
+    const currentRouteHash = ref(route.hash || "#home");
+    const activeSection = ref([]);
+    const menuClick = ref(false);
+    let observer = null;
 
-    return { getCurrentHashRoute };
+    const createdObserver = () => {
+      if (observer) observer.disconnect();
+
+      const options = {
+        root: null,
+        threshold: 0.5,
+      };
+
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!menuClick.value && entry.isIntersecting) {
+            currentRouteHash.value = `#${entry.target.id}`;
+            router.replace({ hash: currentRouteHash.value });
+          }
+        });
+      }, options);
+
+      activeSection.value.forEach((section) => {
+        if (section) observer.observe(section);
+      });
+    };
+
+    const handleMenuClick = (sectionId) => {
+      menuClick.value = true;
+      currentRouteHash.value = `#${sectionId}`;
+      router.push({ hash: currentRouteHash.value });
+
+      nextTick(() => {
+        const targetElement = document.getElementById(sectionId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+
+        setTimeout(() => {
+          menuClick.value = false;
+        }, 1000);
+      });
+    };
+
+    onMounted(() => {
+      setTimeout(() => {
+        activeSection.value = [
+          document.getElementById("home"),
+          document.getElementById("skill"),
+          document.getElementById("testi"),
+          document.getElementById("aboutme"),
+        ];
+
+        createdObserver();
+
+        window.addEventListener("scroll", function () {
+          if (menuClick.value) {
+            return;
+          }
+        });
+      }, 300);
+
+      if (route.hash) {
+        menuClick.value = true;
+        const targetId = route.hash.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          setTimeout(() => {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+            setTimeout(() => {
+              menuClick.value = false;
+            }, 1000);
+          }, 500);
+        }
+      }
+    });
+
+    watch(
+      () => route.hash,
+      (newHash) => {
+        if (newHash) {
+          currentRouteHash.value = newHash;
+        }
+      }
+    );
+
+    return { currentRouteHash, menuClick, handleMenuClick };
   },
 };
 </script>

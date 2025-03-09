@@ -1,15 +1,12 @@
 <template>
   <div
-    class="wrapper__loading w-full h-screen bg-sky-100 dark:bg-black flex justify-center items-center pull__up"
+    class="wrapper__loading w-full h-screen bg-gray-50 dark:bg-black flex justify-center items-center"
   >
     <div class="spinner"></div>
   </div>
 </template>
 
 <style>
-.pull__up {
-  animation: pull-up-bg 0.4s 2.35s ease-out;
-}
 .spinner {
   width: 56px;
   height: 56px;
@@ -43,10 +40,10 @@
 
 @keyframes pull-up-bg {
   from {
-    transform: translateY(0);
+    opacity: 1;
   }
   to {
-    transform: translateY(-100vh);
+    opacity: 0;
   }
 }
 </style>

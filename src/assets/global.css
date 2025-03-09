@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shafarik&display=swap");
 
 *,
 *::before,
@@ -17,6 +18,10 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.sub-heading-font {
+  font-family: "Shafarik", system-ui;
 }
 
 .dark {

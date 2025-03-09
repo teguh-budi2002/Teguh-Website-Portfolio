@@ -1,10 +1,10 @@
 <template>
-  <div id="testi" class="mt-2">
+  <div id="testi" ref="testi" class="mt-2">
     <div class="header__text mx-5">
       <p
-        class="text-center sm:text-6xl text-4xl font-semibold my-5 text-slate-500 dark:text-primary"
+        class="sub-heading-font text-center sm:text-6xl text-4xl my-5 text-slate-600 dark:text-primary"
       >
-        What Customer Said To Me?
+        Testimonial
       </p>
       <div class="sm:hidden block mb-3 dark:bg-primary-dark p-3 rounded-md">
         <Accordion class="accordion-custom" :activeIndex="0">
@@ -14,12 +14,11 @@
               <span class="text-slate-400 font-semibold">INFORMATION</span>
             </template>
             <div class="text-slate-400 flex items-center space-x-2">
-              <i class="pi pi-camera"></i>
-              <p class="text-base">Click Image To View The Picture.</p>
+              <p class="text-base">Click the image for preview the image.</p>
             </div>
-            <div class="text-slate-400 flex items-center space-x-2">
+            <!-- <div class="text-slate-400 flex items-center space-x-2">
               <p class="text-base">Scroll Right or Left To See More Picture.</p>
-            </div>
+            </div> -->
           </AccordionTab>
         </Accordion>
       </div>
