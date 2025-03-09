@@ -13,7 +13,7 @@ dist
 dist-ssr
 coverage
 *.local
-tailwind
+tailwind/output.css
 
 /cypress/videos/
 /cypress/screenshots/
