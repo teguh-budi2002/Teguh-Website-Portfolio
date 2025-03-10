@@ -82,18 +82,38 @@ export default {
     const createdObserver = () => {
       if (observer) observer.disconnect();
 
+      let scrollTimeout = null;
       const options = {
         root: null,
-        threshold: 0.5,
+        threshold: 0.8,
       };
 
       observer = new IntersectionObserver((entries) => {
+        if (menuClick.value) return;
+
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+
+        let mostVisibleSection = null;
+        let maxVisibility = 0;
         entries.forEach((entry) => {
-          if (!menuClick.value && entry.isIntersecting) {
-            currentRouteHash.value = `#${entry.target.id}`;
-            router.replace({ hash: currentRouteHash.value });
+          if (entry.isIntersecting && entry.intersectionRatio > maxVisibility) {
+            maxVisibility = entry.intersectionRatio;
+            mostVisibleSection = entry.target;
           }
         });
+
+        scrollTimeout = setTimeout(() => {
+          if (mostVisibleSection && !menuClick.value) {
+            const newHash = `#${mostVisibleSection.id}`;
+
+            if (currentRouteHash.value !== newHash) {
+              currentRouteHash.value = newHash;
+
+              history.replaceState(null, null, newHash);
+            }
+          }
+          scrollTimeout = null;
+        }, 200);
       }, options);
 
       activeSection.value.forEach((section) => {
@@ -102,23 +122,23 @@ export default {
     };
 
     const handleMenuClick = (sectionId) => {
+      if (observer) observer.disconnect();
+
       menuClick.value = true;
       currentRouteHash.value = `#${sectionId}`;
-      router.push({ hash: currentRouteHash.value });
 
-      nextTick(() => {
-        const targetElement = document.getElementById(sectionId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
+      const targetElement = document.getElementById(sectionId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
 
-        setTimeout(() => {
-          menuClick.value = false;
-        }, 1000);
-      });
+      setTimeout(() => {
+        menuClick.value = false;
+        createdObserver();
+      }, 300);
     };
 
     onMounted(() => {

@@ -2,10 +2,10 @@
   <div class="relative">
     <div class="cricle-1-group">
       <div
-        class="circle-1 absolute left-20 top-10 w-[350px] h-[350px] rounded-full bg-sky-100 dark:bg-sky-500"
+        class="circle-1 absolute sm:left-20 left-28 sm:top-10 top-20 sm:w-[350px] w-[250px] sm:h-[350px] h-[250px] rounded-full bg-sky-100 dark:bg-sky-500"
       ></div>
       <div
-        class="circle-1-white absolute left-2 top-1 w-[350px] h-[350px] rounded-full bg-gray-50 dark:bg-primary-dark"
+        class="circle-1-white absolute sm:left-3 left-2 sm:top-1.5 top-1 sm:w-[350px] w-[300px] sm:h-[350px] h-[300px] rounded-full bg-white dark:bg-primary-dark"
       ></div>
     </div>
     <div class="circle-2-group">
@@ -68,5 +68,12 @@ export default {
 
 .p-image-preview-container:hover .img__main {
   transform: scale(1.5);
+}
+
+@media screen and (max-width: 640px) {
+  .p-image-preview-container {
+    width: 300px;
+    height: 300px;
+  }
 }
 </style>
